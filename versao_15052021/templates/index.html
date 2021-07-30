@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <!-- Required meta tags -->
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+          <link rel="stylesheet" href="../static/css/style.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+          <title>Previsão de Diabetes Mellitus Tipo 2</title>
+
+          <script type="text/javascript">
+              <!--
+              function valida_dados()
+              {
+                  // Obtém os dados do formulário
+                  var idade = document.getElementsByName('idade');
+                  var sexo = document.getElementsByName('sexo');
+                  var hemoglobina_glicada = document.getElementsByName('hemoglobina_glicada');
+                  var insulina_pmolL = document.getElementsByName('insulina_pmolL');
+                  var peso = document.getElementsByName('peso');
+                  var altura = document.getElementsByName('altura');
+                  var circunferencia_cintura = document.getElementsByName('circunferencia_cintura');
+                  var glicose_mmolL = document.getElementsByName('glicose_mmolL');
+                  var triglicerides_mmolL = document.getElementsByName('triglicerides_mmolL');
+                  var dm2 = document.getElementsByName('dm2');
+
+                  valida = true;
+                  // Valida a idade
+                  if (idade.value == "")
+                  {
+                      alert("Idade não informada!");
+                      idade.focus();
+                      valida = false;
+                  }
+                  else if (sexo[0].checked == false && sexo[1].checked == false)
+                  { // valida o sexo do paciente
+                      alert("Por favor, selecione o sexo do paciente!");
+                      sexo.focus();
+                      valida = false;
+                  }
+                  else if (hemoglobina_glicada.value == "")
+                  {
+                      alert("Hemoglobina Glicada (Hb1ac) não informada!");
+                      hemoglobina_glicada.focus();
+                      valida = false;
+                  }
+                  else if (insulina_pmolL.value == "")
+                  {
+                      alert("Insulina em mol/L não informada!");
+                      insulina_pmolL.focus();
+                      valida = false;
+                  }
+                  else if (peso.value == "")
+                  {
+                      alert("Peso não informado!");
+                      peso.focus();
+                      valida = false;
+                  }
+                  else if (altura.value == "")
+                  {
+                      alert("Altura não informada!");
+                      altura.focus();
+                      valida = false;
+                  }
+                  else if (circunferencia_cintura.value == "")
+                  {
+                      alert("Circunferência da cintura não informado!");
+                      circunferencia_cintura.focus();
+                      valida = false;
+                  }
+                  else if (glicose_mmolL.value == "")
+                  {
+                      alert("Glicose (mmol / L) não informado!");
+                      glicose_mmolL.focus();
+                      valida = false;
+                  }
+                  else if (triglicerides_mmolL.value == "")
+                  {
+                      alert("Triglicerídeos (mmol / L) não informado!");
+                      triglicerides_mmolL.focus();
+                      valida = false;
+                  }
+
+                  return valida;
+              }
+
+              function onlynumber(evt)
+              {
+                  var theEvent = evt || window.event;
+                  var key = theEvent.keyCode || theEvent.which;
+                  key = String.fromCharCode( key );
+                  var regex = /^[0-9.]+$/;
+
+                  if( !regex.test(key) )
+                  {
+                      theEvent.returnValue = false;
+                      if(theEvent.preventDefault)
+                          theEvent.preventDefault();
+                  }
+              }
+              -->
+          </script>
+    </head>
+
+    <body>
+        <header>
+            <div class="container-fluid p-1 my-1" id="cabecalho">
+                <div class="row">
+                  <div class="col-sm-1" >
+                    </div>
+                    <div class="col-sm-2 d-flex flex-column justify-content-center align-items-center">
+                        <center><img src="../static/img/flocos.png"  class="img-fluid img-thumbnail rounded-circle" alt="Conejo Flocos" width="100px" height="100px"></center>
+                    </div>
+                    <div class="col-sm-7 d-flex flex-column justify-content-center align-items-center" >
+                        <center><h3 class="logo">Previsão de Diabetes Mellitus Tipo 2</h3></center>
+                        <center><h4 class="logo">Flocos </h4></center>
+                    </div>
+                    <div class="col-sm-1" >
+                      </div>
+
+                </div>
+            </div>
+        </header>
+
+        <form name="form1" method="post" action="/verificar" onSubmit="return valida_dados()">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <fieldset>
+                            <center><b><legend style="font-size: 20px">Identificação</legend></b></center>
+                            <p>
+                            <div class="row">
+                                <div class="input-field col s24">
+                                    <label class="active" for="textarea1" style="font-size: 16px" >Idade (em anos)</label><br>
+                                    <input type="text" id="textarea1" name="idade" class="materialize-textarea" maxlength="3" onkeypress="return onlynumber();">
+                                </div>
+                            </div>
+                            <p>
+                            <p style="font-size: 16px"> Sexo Biológico:</p>
+                            <div class="row">
+                                <label>
+                                    <input name="sexo" class="with-gap" name="group1" type="radio" value="2" />
+                                    <span style="font-size: 16px">Masculino</span>
+                                </label>
+                            </div>
+                            <div class="row">
+                                <label>
+                                    <input name="sexo" class="with-gap" name="group1" type="radio" value="1" />
+                                    <span style="font-size: 16px">Feminino</span>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <fieldset>
+                            <center><b><legend style="font-size: 20px"> Exames Laboratoriais </legend></b></center>
+                            <p>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label class="active" for="textarea2" style="font-size: 16px">Triglicerídeos (mmol/L)</label><br>
+                                    <input type="text" id="textarea2" name="triglicerides_mmolL" class="materialize-textarea" onkeypress="return onlynumber();" >
+                                </div>
+                            </div>
+                            <p>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label class="active" for="textarea3" style="font-size: 16px">Glicose (mmol/L)</label><br>
+                                    <input type="text" id="textarea3" name="glicose_mmolL" class="materialize-textarea" onkeypress="return onlynumber();">
+                                </div>
+                            </div>
+                            <p>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label class="active" for="textarea4" style="font-size: 16px">Hemoglobina Glicada</label><br>
+                                    <input type="text" id="textarea4" name="hemoglobina_glicada" class="materialize-textarea" onkeypress="return onlynumber();">
+                                </div>
+                            </div>
+                            <p>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label class="active" for="textarea5" style="font-size: 16px">Insulina (pmol/L)</label><br>
+                                    <input type="text" id="textarea5" name="insulina_pmolL" class="materialize-textarea" onkeypress="return onlynumber();">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <fieldset>
+                            <center><b><legend style="font-size: 20px"> Medidas Corporais </legend></b></center>
+                            <p>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label class="active" for="textarea6" style="font-size: 16px">Peso (Kg)</label><br>
+                                    <input type="text" id="textarea6" name="peso" class="materialize-textarea"  onkeypress="return onlynumber();">
+                                </div>
+                            </div>
+                            <p>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label class="active" for="textarea7" style="font-size: 16px">Altura (cm) </label><br>
+                                    <input type="text" id="textarea7" name="altura" class="materialize-textarea" onkeypress="return onlynumber();">
+                                </div>
+                            </div>
+                            <p>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label class="active" for="textarea8" style="font-size: 16px">Cintura (cm)</label><br>
+                                    <input type="text" id="textarea8" name="circunferencia_cintura" class="materialize-textarea" onkeypress="return onlynumber();">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+
+                <center>
+                  <p>
+                  <p>
+                  <button type="submit"  name="verificar" value="Resultado" class="btn btn-block"><b>Resultado</b></button>
+                </center>
+            </div>
+        </form>
+
+        <footer>
+            <br />
+            <div class="w3-container w3-teal teal lighten-2">
+                <center><p>Flocos - Versão 2021.3 - foi desenvolvido por Lucia Helena Aparecida Rissi Salvi </p></center>
+            </div>
+        </footer>
+    </body>
+</html>

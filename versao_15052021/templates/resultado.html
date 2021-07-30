@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <!-- Required meta tags -->
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+          <link rel="stylesheet" href="../static/css/style.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+          <title>Previsão de Diabetes Mellitus Tipo 2 -  Resultado</title>
+
+    </head>
+
+    <body>
+      <header>
+          <div class="container-fluid p-1 my-1" id="cabecalho">
+              <div class="row">
+                <div class="col-sm-1" >
+                  </div>
+                  <div class="col-sm-2 d-flex flex-column justify-content-center align-items-center">
+                      <center><img src="../static/img/flocos.png"  class="img-fluid img-thumbnail rounded-circle" alt="Conejo Flocos" width="100px" height="100px"></center>
+                  </div>
+                  <div class="col-sm-7 d-flex flex-column justify-content-center align-items-center" >
+                      <center><h3 class="logo">Previsão de Diabetes Mellitus Tipo 2</h3></center>
+                      <center><h4 class="logo">Flocos </h4></center>
+                  </div>
+                  <div class="col-sm-1" >
+                    </div>
+
+              </div>
+          </div>
+      </header>
+
+        <center>
+            <div class="container">
+              <p>
+              <h6 ><b>Diagnóstico de DM2: {{resultado.classe}}</b></h6>
+              <div class="row">
+                <div class="col-sm-6">
+                  <h6 font color="black" style="text-align: right"><b>Probabilidade do resultado: </b></h6>
+                </div>
+                <div class="col-sm-6" class="progress" style="text-align: left">
+                  <div class="progress-bar" style="width:{{resultado.res_proba}}%;background-color:{{resultado.cor}}">{{resultado.res_proba}}%</div>
+                </div>
+            </div>
+            <hr>
+
+        </center>
+        <p>
+
+        <center><div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <fieldset>
+                        <div class="row">
+                            <div class="input-field col s24">
+                                <b><p style="font-size: 16px"> Idade:</p></b>
+                                <p>{{resultado.idade}}</p>
+                                <b><p style="font-size: 16px"> Sexo Biológico:</p></b>
+                                <p>{{resultado.sexo}}</p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="col-sm-4">
+                    <fieldset>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <b><p style="font-size: 16px"> Triglicerídeos (mmol/L):</p></b>
+                                <p>{{resultado.triglicerides_mmolL}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <b><p style="font-size: 16px"> Glicose (mmol/L):</p></b>
+                                <p>{{resultado.glicose_mmolL}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <b><p style="font-size: 16px"> Hemoglobina Glicada:</p></b>
+                                <p>{{resultado.hemoglobina_glicada}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <b><p style="font-size: 16px"> Insulina (pmol/L):</p></b>
+                                <p>{{resultado.insulina_pmolL}}</p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="col-sm-4">
+                    <fieldset>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <b><p style="font-size: 16px"> Peso (Kg):</p></b>
+                                <p>{{resultado.peso}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <b><p style="font-size: 16px"> Altura (m):</p></b>
+                                <p>{{resultado.altura}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <b><p style="font-size: 16px"> Cintura (cm):</p></b>
+                                <p>{{resultado.circunferencia_cintura}}</p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+          <p>
+
+           <a href="{{ url_for('index') }}">
+              <button type="submit"  name="btnVoltar" value="Voltar" class="btn btn-block"><b>Voltar</b></button>
+          </a>
+        </center>
+
+        <footer>
+            <br />
+            <div class="w3-container w3-teal teal lighten-2">
+                <center><p>Flocos - Versão 2021.3 - foi desenvolvido por Lucia Helena Aparecida Rissi Salvi </p></center>
+            </div>
+        </footer>
+    </body>
+</html>
