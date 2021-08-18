@@ -6,4 +6,7 @@ Em termos de dados, foram utilizados os dados do programa NHANES, que é um prog
 
 A base utilizada, como visto, é norte-americana. Por isso, pode ser marcada por características próprias daquela população. Desta forma, poderemos prosseguir com as pesquisas no sentido de utilizar uma base de dados nacional, por exemplo,  pacientes de uma determinada cidade ou estado brasileiro além de contar com o aporte de profissionais da área médica. 
 
+Com os dados selecionados, foram realizados testes para a geração do modelo além de ajuste de hiperparâmetros. Também foram aplicadas técnicas de preparação de dados (algoritmos). 
+
+
 
